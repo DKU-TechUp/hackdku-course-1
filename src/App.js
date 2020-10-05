@@ -1,26 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function List() {
+    return (
+      <div className="list">
+        <h1>List for {this.props.name}</h1>
+        <ul>
+          <li>Homework</li>
+          <li>Volunteering</li>
+          <li>Student Work</li>
+        </ul>
+      </div>
+    );
 }
 
-export default App;
+export default List;
