@@ -13,17 +13,17 @@ class List extends Component {
   constructor(props){
     super();
     this.state = {listValue: ["Homework", "Volunteering", "Student Work"], numCompleted: 0};
-    this.moveToBottom = this.moveToBottom.bind(this);
+    this.countCompleted = this.countCompleted.bind(this);
   }
 
-  moveToBottom(change){
+  countCompleted(change){
     this.setState((state) => ({numCompleted: state.numCompleted + change}));
   }
 
   render() {
     const listItems = [];
     for(const item in this.state.listValue){
-      listItems.push(<ListItem value={this.state.listValue[item]} callback={this.moveToBottom} key={item} />);
+      listItems.push(<ListItem value={this.state.listValue[item]} callback={this.countCompleted} key={item} />);
     }
 
     return (
