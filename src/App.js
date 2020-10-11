@@ -1,48 +1,67 @@
 import React, { Component } from "react";
 import "./App.css";
 
-class List extends React.Component {
+function ListHolder(){
+  return (
+    <div className="list-holder">
+      <List name={"Homework"}/>
+    </div>
+  );
+}
+
+class List extends Component {
+  constructor(props){
+    super();
+    this.state = {listValue: ["Homework", "Volunteering", "Student Work"], numCompleted: 0};
+    this.moveToBottom = this.moveToBottom.bind(this);
+  }
+
+  moveToBottom(change){
+    this.setState((state) => ({numCompleted: state.numCompleted + change}));
+  }
+
   render() {
+    const listItems = [];
+    for(const item in this.state.listValue){
+      listItems.push(<ListItem value={this.state.listValue[item]} callback={this.moveToBottom} key={item} />);
+    }
+
     return (
       <div className="list">
-        <h1>List for {this.props.name}</h1>
+        <h3>{this.props.name} List</h3>
+        <p>Completed {this.state.numCompleted}/{this.state.listValue.length}</p>
         <ul>
-          <li>Homework</li>
-          <li>Volunteering</li>
-          <li>Student Work</li>
+          {listItems}
         </ul>
       </div>
     );
   }
 }
 
-class Block extends React.Component {
-  constructor(props) {
-    this.state = { color: "#EADAAC", selected: false };
+class ListItem extends Component{
+  constructor(props){
+    super();
+    this.state = { color: "#000000", selected: false };
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.state.selected = !this.state.selected;
+    this.setState((state) => ({selected: !state.selected}));
     this.setState((state) => ({
-      color: this.state.selected ? `#D6B85C` : "#EADAAC",
+      color: state.selected ? "#D6B85C" : "#000000",
     }));
-    this.props.callback(this.state.selected);
+    this.props.callback(this.state.selected ? -1 : 1);
   }
 
   render() {
     const style = {
-      backgroundColor: this.state.color,
+      color: this.state.color,
     };
 
     return (
-      <div className="block" style={style}>
-        <text className="noselect" onClick={this.handleClick}>
-          {this.props.value}
-        </text>
-      </div>
+      <li className="no-select" onClick={this.handleClick} style={style}>{this.props.value}</li>
     );
   }
 }
 
-export default List;
+export default ListHolder;
