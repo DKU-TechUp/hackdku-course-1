@@ -4,7 +4,9 @@ import "./App.css";
 function ListHolder(){
   return (
     <div className="list-holder">
-      <List name={"Homework"}/>
+      <List name={"Homework"} listValue={["Homework", "Volunteering", "Student Work"]}/>
+      <List name={"Homework"} listValue={["Volunteering", "Student Work"]}/>
+      <List name={"Homework"} listValue={["Homework", "Volunteering", "Student Work", "More Homework"]}/>
     </div>
   );
 }
@@ -12,7 +14,7 @@ function ListHolder(){
 class List extends Component {
   constructor(props){
     super();
-    this.state = {listValue: ["Homework", "Volunteering", "Student Work"], numCompleted: 0};
+    this.state = { numCompleted: 0 };
     this.countCompleted = this.countCompleted.bind(this);
   }
 
@@ -22,14 +24,14 @@ class List extends Component {
 
   render() {
     const listItems = [];
-    for(const item in this.state.listValue){
-      listItems.push(<ListItem value={this.state.listValue[item]} callback={this.countCompleted} key={item} />);
+    for(const item in this.props.listValue){
+      listItems.push(<ListItem value={this.props.listValue[item]} callback={this.countCompleted} key={item} />);
     }
 
     return (
       <div className="list">
         <h3>{this.props.name} List</h3>
-        <p>Completed {this.state.numCompleted}/{this.state.listValue.length}</p>
+        <p>Completed {this.state.numCompleted}/{this.props.listValue.length}</p>
         <ul>
           {listItems}
         </ul>
