@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import "./App.css";
 
 function ListHolder(){
+  let listList = [<List key={0} name={"Homework"} listValue={["Homework", "Volunteering", "Student Work"]}/>]
+
   return (
     <div className="list-holder">
-      <List name={"Homework"} listValue={["Homework", "Volunteering", "Student Work"]}/>
-      <List name={"Homework"} listValue={["Volunteering", "Student Work"]}/>
-      <List name={"Homework"} listValue={["Homework", "Volunteering", "Student Work", "More Homework"]}/>
+      {listList}
     </div>
   );
 }
