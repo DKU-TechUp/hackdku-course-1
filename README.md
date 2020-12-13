@@ -1,6 +1,6 @@
-### An introduction to React.JS, Node.js, and deployment
+## An introduction to React.JS, Node.js, and deployment
 
-#### Dev quick reference:
+### Dev quick reference:
 
 **Testing UI with React**
 >npm run ui
@@ -18,5 +18,7 @@ Make sure you have Docker running (open docker desktop) and then
 >docker build --pull -f "Dockerfile" --tag <project-name\>:latest .
 
 >docker run -d -p 3001:3001 --name <project-name\> <project-name\>:latest
+
+\* replace <project-name\> with your projects name e.g. course-test
 
 Check to see if its running with `docker ps` then navigate to http://localhost:<PORT\> where PORT is the port you specify in your Dockerfile
