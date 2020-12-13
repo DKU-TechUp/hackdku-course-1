@@ -16,6 +16,7 @@ Then navigate to http://localhost:<PORT\> where PORT is the port you specify in 
 
 Make sure you have Docker running (open docker desktop) and then
 >docker build --pull -f "Dockerfile" --tag <project-name\>:latest .
-docker run -d -p 3001:3001 --name <project-name\> <project-name\>:latest
+
+>docker run -d -p 3001:3001 --name <project-name\> <project-name\>:latest
 
 Check to see if its running with `docker ps` then navigate to http://localhost:<PORT\> where PORT is the port you specify in your Dockerfile
