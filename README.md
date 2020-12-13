@@ -13,6 +13,7 @@ Then navigate to http://localhost:<PORT\>
 Then navigate to http://localhost:<PORT\> where PORT is the port you specify in your `server.js` file
 
 **Running on Docker**
+
 Make sure you have Docker running (open docker desktop) and then
 >docker build --pull -f "Dockerfile" --tag <project-name\>:latest .
 docker run -d -p 3001:3001 --name <project-name\> <project-name\>:latest
