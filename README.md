@@ -1,5 +1,7 @@
 ## An introduction to React.JS, Node.js, and deployment
 
+Check out `Course_notes.pdf` for help.
+
 ### Dev quick reference:
 
 **Testing UI with React**
