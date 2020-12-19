@@ -22,3 +22,9 @@ Make sure you have Docker running (open docker desktop) and then
 \* replace <project-name\> with your projects name e.g. course-test
 
 Check to see if its running with `docker ps` then navigate to http://localhost:<PORT\> where PORT is the port you specify in your Dockerfile
+
+When you're done close the container with
+>docker stop <project-name\>
+
+Later attempts to run the container simply remove the `--name` tag
+>docker run -d -p 3001:3001 <project-name\>

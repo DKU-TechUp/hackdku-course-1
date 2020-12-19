@@ -1,0 +1,13 @@
+{
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+      "Name": "silvanick/course-test",
+      "Update": "true"
+    },
+    "Ports": [
+      {
+        "ContainerPort": 3001,
+        "HostPort": 8000
+      }
+    ]
+  }
